@@ -3,425 +3,466 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saksham Support - Premium</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Saksham Support - Modern Accessibility</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- MODERN CSS VARIABLES --- */
+        /* --- VARIABLES --- */
         :root {
-            --primary: #136F63; /* Teal Green - Professional */
-            --secondary: #87C38F; /* Soft Sage */
-            --accent: #F4D35E; /* Warm Yellow for highlights */
-            --dark: #222;
-            --light: #FDFDFD;
-            --glass: rgba(255, 255, 255, 0.9);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --primary-dark: #0f3d36;   /* Dark Green for Navbar/Footer */
+            --primary-green: #2e7d32;  /* Standard Green */
+            --accent: #ffb74d;         /* Orange for CTA */
+            --bg-light: #e8f5e9;       /* Very Light Green Background */
+            --glass-dark: rgba(15, 61, 54, 0.90); /* Dark Glass */
+            --glass-light: rgba(255, 255, 255, 0.6); /* Light Glass for cards */
+            --text-dark: #1a1a1a;
+            --text-light: #f1f1f1;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Poppins', sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: #f4f9f4;
+            background: linear-gradient(180deg, #f1f8e9 0%, #dcedc8 100%); /* Halka Green Texture */
+            color: var(--text-dark);
             overflow-x: hidden;
         }
 
-        /* --- GLASS NAVBAR --- */
+        /* --- DARK GLASS NAVBAR --- */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-            background: var(--glass);
-            backdrop-filter: blur(10px); /* Glass Effect */
+            background: var(--glass-dark); /* Dark Transparent */
+            backdrop-filter: blur(15px);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-bottom: 1px solid rgba(255,255,255,0.3);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
 
         .logo-img {
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            border: 2px solid var(--primary);
-            padding: 2px;
-            transition: transform 0.5s;
-        }
-
-        .logo-img:hover {
-            transform: rotate(360deg); /* Spin animation */
+            border: 2px solid var(--accent);
         }
 
         .brand {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            color: var(--primary);
-            letter-spacing: -0.5px;
+            color: var(--text-light);
+            letter-spacing: 1px;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--dark);
+            color: rgba(255,255,255,0.8);
             margin-left: 30px;
-            font-weight: 500;
-            position: relative;
+            font-size: 0.95rem;
             transition: 0.3s;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            bottom: -5px;
-            left: 0;
-            transition: 0.3s;
+        .nav-links a:hover {
+            color: var(--accent);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .login-btn {
-            background: var(--primary);
-            color: #fff !important;
-            padding: 10px 25px;
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(19, 111, 99, 0.3);
-        }
-
-        .login-btn:hover {
-            background: #0e5249;
-            transform: translateY(-2px);
-        }
-
-        /* --- HERO SECTION WITH WAVE --- */
+        /* --- HERO SECTION (Modern Fade) --- */
         .hero {
-            position: relative;
-            height: 90vh;
-            background: linear-gradient(160deg, var(--primary), #2E8B57);
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
             padding: 0 20px;
+            position: relative;
+            /* Background image placeholder - nature/calm */
+            background: url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
         }
 
-        .hero-text {
-            max-width: 700px;
-            animation: fadeInUp 1s ease-out;
+        /* Overlay to fade content */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(232, 245, 233, 0.4), var(--bg-light));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            animation: fadeIn Up 1s ease;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
+            color: var(--primary-dark);
             margin-bottom: 15px;
-            line-height: 1.2;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
+        /* --- SHOPPING SECTION (Stack Cards) --- */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-dark);
+            margin: 60px 0 40px;
         }
 
-        .btn-group {
+        .shop-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 0 10%;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(46, 125, 50, 0.2);
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ef5350;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 150px;
+            background: #f5f5f5;
+            border-radius: 15px;
+            margin-bottom: 15px;
             display: flex;
-            gap: 15px;
+            align-items: center;
             justify-content: center;
+            font-size: 3rem;
+            color: #ccc;
         }
 
-        .main-btn {
-            padding: 15px 40px;
-            background: var(--accent);
-            color: var(--dark);
-            text-decoration: none;
+        .price-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .new-price {
+            color: var(--primary-green);
             font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .uses {
+            font-size: 0.85rem;
+            color: #666;
+            background: #e8f5e9;
+            padding: 8px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        /* --- DISCOUNT BANNER --- */
+        .discount-banner {
+            margin: 80px 5%;
+            background: linear-gradient(135deg, var(--primary-green), #66bb6a);
+            border-radius: 30px;
+            padding: 40px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 20px 40px rgba(46, 125, 50, 0.3);
+        }
+
+        .discount-text h2 { font-size: 2rem; margin-bottom: 10px; }
+        .discount-btn {
+            background: white;
+            color: var(--primary-green);
+            padding: 12px 30px;
             border-radius: 50px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
+            font-weight: bold;
             transition: 0.3s;
         }
+        .discount-btn:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
 
-        .main-btn:hover {
-            transform: scale(1.05);
-            background: #e5c550;
+        /* --- SERVICES (Medical & Jobs) --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0 10%;
+            margin-bottom: 80px;
         }
 
-        /* SVG Wave Separator */
-        .wave {
+        .service-glass {
+            background: var(--glass-light);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.6);
+            transition: 0.3s;
+        }
+        
+        .service-glass:hover { background: white; }
+        .service-glass h3 { color: var(--primary-dark); margin-bottom: 10px; }
+
+        /* --- BIG AESTHETIC FOOTER --- */
+        footer {
+            position: relative;
+            background-color: var(--primary-dark);
+            color: white;
+            padding-top: 150px; /* Space for wave */
+            padding-bottom: 50px;
+        }
+
+        /* The Wave SVG at Top of Footer */
+        .footer-wave {
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
             width: 100%;
             overflow: hidden;
             line-height: 0;
         }
 
-        .wave svg {
-            position: relative;
+        .footer-wave svg {
             display: block;
             width: calc(100% + 1.3px);
-            height: 120px;
+            height: 150px;
         }
 
-        .wave .shape-fill {
-            fill: #f4f9f4;
+        .footer-wave .shape-fill {
+            fill: #e8f5e9; /* Matches body background for seamless look */
         }
 
-        /* --- TICKER (NEWS) --- */
-        .ticker-wrap {
-            width: 100%;
-            background-color: var(--dark);
-            color: white;
-            overflow: hidden;
-            height: 40px;
-            display: flex;
-            align-items: center;
-        }
-
-        .ticker {
-            display: inline-block;
-            white-space: nowrap;
-            animation: ticker 20s linear infinite;
-            padding-left: 100%;
-        }
-
-        .ticker-item {
-            display: inline-block;
-            padding: 0 2rem;
-            font-size: 0.9rem;
-        }
-
-        @keyframes ticker {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-100%, 0, 0); }
-        }
-
-        /* --- FEATURES SECTION --- */
-        .features {
-            padding: 80px 10%;
-            text-align: center;
-        }
-
-        .section-head h2 {
-            color: var(--primary);
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .card {
-            background: white;
-            padding: 40px 20px;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            transition: 0.4s;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 5px solid transparent;
-        }
-
-        .card:hover {
-            transform: translateY(-15px);
-            border-bottom: 5px solid var(--primary);
-        }
-
-        .icon-box {
-            width: 70px;
-            height: 70px;
-            background: rgba(19, 111, 99, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: var(--primary);
-            font-size: 1.8rem;
-            transition: 0.3s;
-        }
-
-        .card:hover .icon-box {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* --- STATS SECTION --- */
-        .stats {
-            background: var(--primary);
-            color: white;
-            padding: 60px 10%;
+        .footer-content {
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
-            text-align: center;
-            margin: 50px 0;
-            border-radius: 20px;
-            margin-left: 5%;
-            margin-right: 5%;
+            padding: 0 10%;
+            gap: 30px;
         }
 
-        .stat-item h3 {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-        }
+        .footer-col h4 { font-size: 1.5rem; margin-bottom: 20px; color: var(--accent); }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; opacity: 0.8; cursor: pointer; transition: 0.3s; }
+        .footer-col ul li:hover { color: var(--accent); opacity: 1; }
 
-        /* --- FLOATING HELPLINE --- */
-        .float-btn {
+        /* --- FLOATING BUTTONS (Bottom Right) --- */
+        .floating-actions {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #FF5252;
-            color: white;
-            width: 60px;
-            height: 60px;
+            display: flex;
+            gap: 15px;
+            z-index: 2000;
+        }
+
+        .float-btn {
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 5px 20px rgba(255, 82, 82, 0.4);
+            font-size: 1.3rem;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             cursor: pointer;
-            transition: 0.3s;
-            animation: pulse 2s infinite;
+            transition: transform 0.3s;
         }
 
-        .float-btn:hover {
-            transform: scale(1.1);
-        }
+        .call-btn { background: #FF5252; animation: pulse 2s infinite; }
+        .setting-btn { background: #333; }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(255, 82, 82, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 82, 82, 0); }
-        }
+        .float-btn:hover { transform: scale(1.1); }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        /* Animations */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(255, 82, 82, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 82, 82, 0); } }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            nav { flex-direction: column; }
-            .nav-links { margin-top: 20px; display: flex; flex-direction: column; gap: 15px; text-align: center; }
-            .nav-links a { margin: 0; }
-            .stats { flex-direction: column; gap: 30px; }
+            .discount-banner { flex-direction: column; text-align: center; gap: 20px; }
+            nav { flex-direction: column; gap: 15px; padding-bottom: 20px;}
+            .nav-links { margin: 0; }
         }
     </style>
 </head>
 <body>
 
-    <div class="float-btn" title="Emergency Helpline">
-        <i class="fas fa-phone-alt"></i>
-    </div>
-
     <nav>
         <div class="logo-area">
             <img src="shinchan.png" alt="Logo" class="logo-img">
-            <div class="brand">Saksham Support</div>
+            <span class="brand">Saksham Support</span>
         </div>
         <div class="nav-links">
             <a href="#">Home</a>
-            <a href="#">Resources</a>
-            <a href="#">Jobs</a>
-            <a href="#">Community</a>
-            <a href="#" class="login-btn">Sign Up</a>
+            <a href="#shop">Equipment Shop</a>
+            <a href="#schemes">Govt Schemes</a>
+            <a href="#medical">Medical</a>
         </div>
     </nav>
 
-    <div class="ticker-wrap">
-        <div class="ticker">
-            <div class="ticker-item">📢 New Government Scheme Released: Free Wheelchair Distribution 2025</div>
-            <div class="ticker-item">📢 UDID Card Registration Camp in Delhi this Sunday</div>
-            <div class="ticker-item">📢 500+ New Jobs Added for Differently Abled in Tech Sector</div>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Empowering Every Step</h1>
+            <p>Your companion for Medical Aid, Employment, and Assistive Technology.</p>
         </div>
-    </div>
+    </header>
 
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Making Life Accessible <br> & Independent</h1>
-            <p>India's first comprehensive platform for equipment, jobs, and rights for the Physically Challenged.</p>
-            <div class="btn-group">
-                <a href="#" class="main-btn">Get Support</a>
-                <a href="#" class="main-btn" style="background: transparent; border: 2px solid white; color: white;">Donate</a>
+    <h2 class="section-title" id="shop">Special Equipment Store</h2>
+    <section class="shop-container">
+        
+        <div class="product-card">
+            <span class="badge">20% OFF</span>
+            <div class="product-img"><i class="fas fa-wheelchair"></i></div>
+            <h3>Smart Wheelchair</h3>
+            <div class="price-box">
+                <span class="old-price">₹15,000</span>
+                <span class="new-price">₹12,000</span>
+            </div>
+            <div class="uses">
+                <strong>Uses:</strong> Automated navigation, lightweight, foldable.
             </div>
         </div>
+
+        <div class="product-card">
+            <span class="badge">Subsidy Available</span>
+            <div class="product-img"><i class="fas fa-ear-listen"></i></div>
+            <h3>Digital Hearing Aid</h3>
+            <div class="price-box">
+                <span class="old-price">₹5,000</span>
+                <span class="new-price">₹2,500</span>
+            </div>
+            <div class="uses">
+                <strong>Uses:</strong> Noise cancellation, Bluetooth connectivity.
+            </div>
+        </div>
+
+        <div class="product-card">
+            <span class="badge">New Arrival</span>
+            <div class="product-img"><i class="fas fa-walking"></i></div>
+            <h3>Tactile Cane</h3>
+            <div class="price-box">
+                <span class="old-price">₹1,200</span>
+                <span class="new-price">₹999</span>
+            </div>
+            <div class="uses">
+                <strong>Uses:</strong> Sensor-based obstacle detection for visually impaired.
+            </div>
+        </div>
+    </section>
+
+    <section class="discount-banner">
+        <div class="discount-text">
+            <h2>🔥 Mega Support Sale</h2>
+            <p>Get flat 40% off on prosthetics with UDID Card verification.</p>
+        </div>
+        <a href="#" class="discount-btn">Claim Offer Now</a>
+    </section>
+
+    <h2 class="section-title" id="schemes">Essential Services</h2>
+    <section class="services-grid">
         
-        <div class="wave">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <div class="service-glass" id="medical">
+            <h3><i class="fas fa-user-md"></i> Medical Assistance</h3>
+            <p>Free checkups at partner hospitals. Book priority appointments for physiotherapy and rehabilitation centers near you.</p>
+        </div>
+
+        <div class="service-glass">
+            <h3><i class="fas fa-landmark"></i> Govt Schemes & Jobs</h3>
+            <p>Latest notifications for Reserved Quota Jobs (Group C & D). Apply for Disability Pension and Railway Concession directly.</p>
+        </div>
+
+        <div class="service-glass">
+            <h3><i class="fas fa-scale-balanced"></i> Legal Support</h3>
+            <p>Free legal consultancy for rights protection under the RPWD Act, 2016.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
             </svg>
         </div>
-    </section>
 
-    <section class="stats">
-        <div class="stat-item">
-            <h3>10,000+</h3>
-            <p>Lives Impacted</p>
-        </div> 
-        <div class="stat-item">
-            <h3>500+</h3>
-            <p>Partner NGOs</p>
-        </div>
-        <div class="stat-item">
-            <h3>1,200+</h3>
-            <p>Jobs Provided</p>
-        </div>
-    </section>
-
-    <section class="features">
-        <div class="section-head">
-            <h2>Our Core Services</h2>
-            <p>Designed to make your journey easier</p>
-        </div>
-
-        <div class="grid">
-            <div class="card">
-                <div class="icon-box">
-                    <i class="fas fa-wheelchair"></i>
-                </div>
-                <h3>Smart Equipment</h3>
-                <p>Browse latest assistive technology with subsidized rates and home delivery options.</p>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Saksham Support</h4>
+                <p>Building a world where ability shines brighter than disability.</p>
             </div>
-
-            <div class="card">
-                <div class="icon-box">
-                    <i class="fas fa-university"></i>
-                </div>
-                <h3>Govt Schemes</h3>
-                <p>One-click application for Disability Pension, Travel Passes, and Legal Aid.</p>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li>Apply for UDID</li>
+                    <li>Job Portal</li>
+                    <li>Buy Equipment</li>
+                    <li>Contact Us</li>
+                </ul>
             </div>
-
-            <div class="card">
-                <div class="icon-box">
-                    <i class="fas fa-briefcase"></i>
-                </div>
-                <h3>Inclusive Jobs</h3>
-                <p>Connect with employers who value your skills. Remote and on-site jobs available.</p>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> help@saksham.org</li>
+                    <li><i class="fas fa-phone"></i> 1800-123-4567</li>
+                    <li><i class="fas fa-map-marker-alt"></i> New Delhi, India</li>
+                </ul>
             </div>
         </div>
-    </section>
+    </footer>
+
+    <div class="floating-actions">
+        <div class="float-btn setting-btn" title="Settings">
+            <i class="fas fa-cog"></i>
+        </div>
+        <div class="float-btn call-btn" title="Emergency Call">
+            <i class="fas fa-phone-alt"></i>
+        </div>
+    </div>
 
 </body>
 </html>
