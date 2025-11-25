@@ -1,0 +1,267 @@
+
+        /* --- 1. SETUP & VARIABLES --- */
+        :root {
+            --deep-green: #0a332a; /* Darkest Green (Footer) */
+            --nature-green: #4caf50; /* Vines/Icons */
+            --light-bg: #e0f2f1; /* Consistent Light Green Background */
+            --glass: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --text-dark: #122924;
+            --text-light: #f5f5f5;
+            --accent: #ffca28; /* Gold Accent */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            overflow-x: hidden; /* Hide horizontal scroll from waves */
+            position: relative;
+        }
+
+        /* --- 2. VIDEO BACKGROUND WITH FADE --- */
+        .video-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100vh;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+
+        /* The Magic Fade Overlay */
+        .fade-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(224, 242, 241, 0.3) 0%, var(--light-bg) 95%);
+            z-index: -1;
+        }
+
+        /* --- 3. SIDE WAVES & VINES (ARTISTIC) --- */
+        /* Left Wave */
+        .side-wave {
+            position: fixed; top: 0; bottom: 0; width: 80px;
+            z-index: 50; pointer-events: none; /* Let clicks pass through */
+        }
+        .side-left { left: 0; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 800" preserveAspectRatio="none"><path d="M0,0 V800 C40,600 80,400 40,200 C20,100 50,50 0,0 Z" fill="%234caf50" opacity="0.1"/></svg>'); background-size: cover; }
+        
+        /* Right Wave */
+        .side-right { right: 0; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 800" preserveAspectRatio="none"><path d="M100,0 V800 C60,600 20,400 60,200 C80,100 50,50 100,0 Z" fill="%234caf50" opacity="0.1"/></svg>'); background-size: cover; }
+
+        /* Floating Flower Icons on Sides */
+        .vine-icon {
+            position: fixed; color: var(--nature-green); opacity: 0.6;
+            animation: floatVine 4s ease-in-out infinite; z-index: 51;
+        }
+        .v1 { top: 20%; left: 20px; font-size: 1.5rem; animation-delay: 0s; }
+        .v2 { top: 50%; left: 10px; font-size: 1rem; animation-delay: 1s; }
+        .v3 { top: 80%; left: 25px; font-size: 1.2rem; animation-delay: 2s; }
+        .v4 { top: 15%; right: 20px; font-size: 1.5rem; animation-delay: 0.5s; }
+        .v5 { top: 60%; right: 15px; font-size: 1.2rem; animation-delay: 1.5s; }
+
+        @keyframes floatVine {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+        }
+
+        /* --- 4. NAVIGATION (Glass) --- */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 8%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            position: sticky; top: 0; z-index: 1000;
+        }
+
+   .logo-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  /* Ab size ko 50px se badhakar 100px kar diya hai */
+  width: 80px;
+  height:80px;
+  border-radius: 50%;
+}
+
+
+        /* Stable logo - No animation */
+        
+        .nav-items { display: flex; gap: 30px; align-items: center; }
+        .nav-items a { text-decoration: none; color: var(--text-dark); font-weight: 600; position: relative; }
+        .nav-items a::after { content:''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background: var(--text-dark); transition: 0.3s; }
+        .nav-items a:hover::after { width: 105%; }
+
+        /* --- 5. HERO SECTION WITH SWIPER --- */
+        .hero {
+            min-height: 90vh;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 8%;
+            position: relative;
+        }
+
+        .hero-text { flex: 1; max-width: 50%; z-index: 2; }
+        .hero-text h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; font-weight: 800; color: var(--deep-green); }
+        .hero-text p { font-size: 1.3rem; margin-bottom: 30px; color: #333; }
+
+        /* Hero Swiper (Cards inside Hero) */
+        .hero-swiper {
+            width: 400px; height: 500px;
+            display: flex; overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px; padding-bottom: 20px;
+            z-index: 2;
+        }
+        .hero-swiper::-webkit-scrollbar { height: 8px; }
+        .hero-swiper::-webkit-scrollbar-thumb { background: var(--nature-green); border-radius: 10px; }
+
+        .swiper-card {
+            min-width: 100%;
+            background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px; /* High Curve */
+            padding: 30px;
+            display: flex; flex-direction: column; justify-content: center;
+            scroll-snap-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            transition: 0.4s;
+        }
+        .swiper-card h3 { font-size: 2rem; color: var(--deep-green); margin-bottom: 10px; }
+        .swiper-card i { font-size: 4rem; color: var(--nature-green); margin-bottom: 20px; }
+        
+        /* --- 7. NEWSLETTER (Compact) --- */
+        .newsletter {
+            margin: 60px auto 0 auto;
+            max-width: 800px; /* Width limit kiya */
+            background: var(--nature-green);
+            border-radius: 30px; /* Fully rounded */
+            padding: 40px;
+            text-align: center; color: white;
+            position: relative; z-index: 10;
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.3);
+        }
+        .newsletter h2 { font-size: 1.8rem; margin-bottom: 10px; }
+        .newsletter p { font-size: 1rem; margin-bottom: 20px; opacity: 0.9; }
+        .newsletter input {
+            padding: 12px 25px; border-radius: 50px; border: none; width: 60%; outline: none;
+        }
+        .newsletter button {
+            padding: 12px 30px; border-radius: 50px; border: none; background: var(--deep-green); color: white; cursor: pointer; font-weight: bold; margin-left: 10px;
+        }
+
+        /* --- FOOTER (Restructured) --- */
+        .footer-wrapper {
+            background: var(--deep-green); 
+            margin-top: 80px; 
+            padding-bottom: 30px;
+            position: relative;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .wave-divider { position: absolute; top: -100px; left: 0; width: 100%; line-height: 0; pointer-events: none; }
+        .wave-divider svg { width: 100%; height: 100px; display: block; fill: var(--deep-green); }
+
+        footer {
+            padding: 40px 8% 20px 8%;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Top Section: Branding + Links Side-by-Side */
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+             background: var(--deep-green);
+            color: var(--light-bg);
+            gap: 40px;
+        }
+
+        /* Branding Section */
+        .footer-brand {
+            flex: 1;
+            min-width: 300px;
+        }
+        .footer-brand-box {
+            display: flex; align-items: center; gap: 15px; margin-bottom: 20px;
+        }
+        .footer-logo-big {
+            height: 60px; width: 60px; border-radius: 50%; border: 2px solid var(--light-green-text); object-fit: cover;
+        }
+        .footer-brand-text {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--light-green-text); /* Requested Light Green Color */
+            text-transform: capitalize;
+        }
+
+        .social-icons {
+            display: flex; gap: 15px; margin-top: 20px;
+        }
+        .social-icons i {
+            font-size: 1.5rem; cursor: pointer; transition: 0.3s; color: white;
+        }
+        .social-icons i:hover { color: var(--accent); transform: translateY(-3px); }
+
+
+        /* Links Side-by-Side Container */
+        .footer-links-container {
+            display: flex;
+            gap: 60px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .footer-links { list-style: none; }
+        .footer-links li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .footer-links li:hover {
+            color: var(--light-green-text);
+            transform: translateX(5px);
+        }
+
+        /* Bottom Section Text */
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            line-height: 1.6;
+        }
+        .highlight-text {
+            color: var(--light-green-text);
+            font-weight: 600;
+        }
+
+
+        @media (max-width: 768px) {
+            nav { flex-direction: column; height: auto; padding: 20px; border-radius: 20px; width: 95%; }
+            .nav-left-group { flex-direction: column; gap: 10px; width: 100%; }
+            .nav-items { flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 15px; }
+            .hero h1 { font-size: 2.2rem; }
+            .footer-top { flex-direction: column; }
+            .footer-links-container { flex-wrap: wrap; gap: 30px; width: 100%; }
+            .newsletter { width: 90%; }
+            .nav-search input { width: 100%; }
+        }
