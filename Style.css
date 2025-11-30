@@ -19,7 +19,7 @@
             overflow-x: hidden; /* Hide horizontal scroll from waves */
             position: relative;
         }
-
+ 
         /* --- 2. VIDEO BACKGROUND WITH FADE --- */
         .video-container {
             position: absolute; 
