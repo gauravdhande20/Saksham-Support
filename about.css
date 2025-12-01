@@ -1,0 +1,113 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+    
+}
+
+body{
+    background:rgb(249, 246, 238);
+    color:#333;
+}
+
+/* NAVBAR */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+    background: rgb(249, 246, 238);
+    box-shadow:0 2px 5px rgba(8, 8, 8, 0.1);
+}
+
+nav a{
+    margin:0 15px;
+    color:#333;
+    text-decoration:none;
+    font-weight:bold;
+}
+/* HERO SECTION */
+.hero{
+    background:url(./Screenshot\ 2025-11-28\ 185243.png) center/cover;
+    height:350px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:rgb(24, 2, 2);
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:40px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.hero p{
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+/* SECTION */
+section{
+    padding:60px 80px;
+    text-align:center;
+}
+
+h2{
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+.cards{
+    display:flex;
+    justify-content:space-around;
+    margin-top:30px;
+}
+
+.card{
+    width:30%;
+    padding:20px;
+    border-left: 5px solid green;
+    background:rgb(249, 246, 238);
+    border-radius:10px;
+    box-shadow:0 2px 7px rgba(0,0,0,0.1);
+} 
+
+.story{
+    display:flex;
+    gap:30px;
+    margin-top:30px;
+}
+
+.story img{
+    width:50%;
+    border-radius:10px;
+}
+
+.team{
+    display:flex;
+    justify-content:space-between;
+    margin-top:30px;
+}
+
+.member{
+    width:30%;
+}
+
+.member img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+}
+
+footer{
+    background:white;
+    padding:20px;
+    margin-top:50px;
+    text-align:center;
+    border-top:1px solid #ccc;
+}

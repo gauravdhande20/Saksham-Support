@@ -3,7 +3,7 @@
         :root {
             --deep-green: #0a332a; /* Darkest Green (Footer) */
             --nature-green: #4caf50; /* Vines/Icons */
-            --light-bg: #e0f2f1; /* Consistent Light Green Background */
+            --light-bg: #d8fffe; /* Consistent Light Green Background */
             --glass: rgba(255, 255, 255, 0.15);
             --glass-border: rgba(255, 255, 255, 0.4);
             --text-dark: #122924;
@@ -15,14 +15,14 @@
         
         body {
             background-color: var(--light-bg);
-            color: var(--text-dark);
+            color: var(--text-dark); 
             overflow-x: hidden; /* Hide horizontal scroll from waves */
             position: relative;
         }
-
+ 
         /* --- 2. VIDEO BACKGROUND WITH FADE --- */
-        .video-container {
-            position: absolute;
+         .video-container {
+            position: absolute; 
             top: 0; left: 0; width: 100%; height: 100vh;
             z-index: -2;
             overflow: hidden;
@@ -36,55 +36,39 @@
         .fade-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(224, 242, 241, 0.3) 0%, var(--light-bg) 95%);
+            background: linear-gradient(to bottom, rgba(0, 149, 141, 0.3) 0%, var(--light-bg) 95%);
             z-index: -1;
         }
 
-        /* --- 3. SIDE WAVES & VINES (ARTISTIC) --- */
-        /* Left Wave */
-        .side-wave {
-            position: fixed; top: 0; bottom: 0; width: 80px;
-            z-index: 50; pointer-events: none; /* Let clicks pass through */
-        }
-        .side-left { left: 0; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 800" preserveAspectRatio="none"><path d="M0,0 V800 C40,600 80,400 40,200 C20,100 50,50 0,0 Z" fill="%234caf50" opacity="0.1"/></svg>'); background-size: cover; }
-        
-        /* Right Wave */
-        .side-right { right: 0; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 800" preserveAspectRatio="none"><path d="M100,0 V800 C60,600 20,400 60,200 C80,100 50,50 100,0 Z" fill="%234caf50" opacity="0.1"/></svg>'); background-size: cover; }
-
-        /* Floating Flower Icons on Sides */
-        .vine-icon {
-            position: fixed; color: var(--nature-green); opacity: 0.6;
-            animation: floatVine 4s ease-in-out infinite; z-index: 51;
-        }
-        .v1 { top: 20%; left: 20px; font-size: 1.5rem; animation-delay: 0s; }
-        .v2 { top: 50%; left: 10px; font-size: 1rem; animation-delay: 1s; }
-        .v3 { top: 80%; left: 25px; font-size: 1.2rem; animation-delay: 2s; }
-        .v4 { top: 15%; right: 20px; font-size: 1.5rem; animation-delay: 0.5s; }
-        .v5 { top: 60%; right: 15px; font-size: 1.2rem; animation-delay: 1.5s; }
-
-        @keyframes floatVine {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(10deg); }
-        }
+       
 
         /* --- 4. NAVIGATION (Glass) --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 8%;
+            padding: 2px 2%;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(255,255,255,0.2);
             position: sticky; top: 0; z-index: 1000;
+            width:95%;
+            top: 20px;
+            left:40px;
+            z-index: 1000;
+            display: flex;
+            gap: 15px; 
+            border-radius: 50px;
+            align-items: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
         }
 
    .logo-box {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .logo-img {
-  /* Ab size ko 50px se badhakar 100px kar diya hai */
+  /* Ab size ko 50px se badhakar 80px kar diya hai */
   width: 80px;
   height:80px;
   border-radius: 50%;
@@ -97,6 +81,22 @@
         .nav-items a { text-decoration: none; color: var(--text-dark); font-weight: 600; position: relative; }
         .nav-items a::after { content:''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background: var(--text-dark); transition: 0.3s; }
         .nav-items a:hover::after { width: 105%; }
+
+
+ /* Search Bar */
+        .search-box {
+          background: rgba(9, 0, 0, 0.448);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            border-radius: 25px; padding: 8px 20px;
+        }
+        .search-box input {
+            background: transparent; border: none; outline: none;
+            color: rgb(22, 22, 22); width: 150px; margin-right: 10px;
+        }
+        .search-box input::placeholder { color: rgba(255,255,255,0.6); }
+       
+
 
         /* --- 5. HERO SECTION WITH SWIPER --- */
         .hero {
@@ -153,8 +153,10 @@
             padding: 12px 25px; border-radius: 50px; border: none; width: 60%; outline: none;
         }
         .newsletter button {
-            padding: 12px 30px; border-radius: 50px; border: none; background: var(--deep-green); color: white; cursor: pointer; font-weight: bold; margin-left: 10px;
+            padding: 12px 30px; border-radius: 50px; border: none; background: var(--deep-green); color: var(--accent); cursor: pointer; font-weight: bold; margin-left: 10px;
         }
+
+        .newsletter button:hover { background: var(--accent);  color: var(--deep-green); transform: translateY(-3px); transition: 0.3s;}
 
         /* --- FOOTER (Restructured) --- */
         .footer-wrapper {
@@ -200,15 +202,16 @@
         .footer-brand-text {
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--light-green-text); /* Requested Light Green Color */
+            color: #00271e; /* Requested Light Green Color */
             text-transform: capitalize;
         }
+        .footer-brand-text:hover { color: var(--accent); transform: translateY(-3px); transition: 0.3s;  }
 
-        .social-icons {
+        .social-icons { 
             display: flex; gap: 15px; margin-top: 20px;
         }
         .social-icons i {
-            font-size: 1.5rem; cursor: pointer; transition: 0.3s; color: white;
+            font-size: 1.5rem; cursor: pointer; transition: 0.3s;   color: #00271e; /* Requested Light Green Color */
         }
         .social-icons i:hover { color: var(--accent); transform: translateY(-3px); }
 
@@ -236,7 +239,7 @@
             display: flex; align-items: center; gap: 8px;
         }
         .footer-links li:hover {
-            color: var(--light-green-text);
+            color: var(--accent);
             transform: translateX(5px);
         }
 
@@ -254,7 +257,6 @@
             font-weight: 600;
         }
 
-
         @media (max-width: 768px) {
             nav { flex-direction: column; height: auto; padding: 20px; border-radius: 20px; width: 95%; }
             .nav-left-group { flex-direction: column; gap: 10px; width: 100%; }
@@ -265,3 +267,204 @@
             .newsletter { width: 90%; }
             .nav-search input { width: 100%; }
         }
+
+
+
+
+
+         /* Floating Container */
+    .floating-tools-container {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 9999;
+        align-items: center;
+    }
+
+    /* Floating Buttons */
+    .float-btn {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: none;
+        color: var(--accent);
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        transition: transform 0.3s, background 0.3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .setting-float {
+        background: var(--text-dark);
+    }
+    
+    .scroll-float {
+        background: var(--accent);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+    }
+
+    .scroll-float.show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .float-btn:hover {
+        transform: scale(1.1);
+    }
+    
+    .fa-spin-hover:hover {
+        animation: fa-spin 2s infinite linear;
+    }
+
+    /* Settings Panel */
+    .settings-panel {
+        position: absolute;
+        bottom: 120px; /* Position above buttons */
+        right: 0;
+        width: 280px;
+        background: var(--nature-green);
+        color: #333;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        padding: 20px;
+        display: none; /* Hidden Default */
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .settings-panel.active {
+        display: block;
+        animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 10px;
+    }
+
+    .panel-header h3 { margin: 0; font-size: 18px; }
+    
+    .close-btn {
+        background: none;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+        color: var(--accent);
+    }
+
+    .setting-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    /* Size Controls */
+    .size-controls {
+        display: flex;
+        align-items: center;
+        color: var(--accent);
+        gap: 10px;
+        background: var(--deep-green);
+        padding: 5px;
+        border-radius: 20px;
+    }
+
+    .size-controls button {
+        background: var(--accent);
+        border: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* Toggle Switch */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 20px;
+    }
+
+    .switch input { opacity: 0; width: 0; height: 0; }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: var(--deep-green);
+        transition: .4s;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        transition: .4s;
+    }
+
+    input:checked + .slider { background-color: var(--accent); }
+    input:checked + .slider:before { transform: translateX(20px); }
+    .slider.round { border-radius: 34px; }
+    .slider.round:before { border-radius: 50%; }
+
+    /* Feedback Button */
+    .feedback-btn {
+        width: 100%;
+        padding: 10px;
+        background: var(--deep-green);
+        color: var(--accent);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    
+    .feedback-btn:hover { background: var(--accent);  color: var(--deep-green); transform: translateY(-3px); transition: 0.3s;}
+
+    /* Dark Mode Global Support */
+    body.dark-mode {
+        background-color: #121212 !important;
+        color: #e0e0e0 !important;
+    }
+    
+    /* Dark Mode for Settings Panel */
+    body.dark-mode .settings-panel {
+        background: #1e1e1e;
+        color: white;
+        border: 1px solid #333;
+    }
+    
+    body.dark-mode .size-controls {
+        background: #333;
+        color: white;
+    }
+    
+    body.dark-mode .size-controls button {
+        background: #555;
+        color: white;
+    }
