@@ -575,4 +575,59 @@
         .price { color: var(--primary-green); font-weight: 700; }
         .offer { font-size: 0.7rem; color: #ef5350; background: #ffebee; padding: 2px 6px; border-radius: 4px; margin-left: 5px; }
 
-      
+       .video-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px; padding: 0 5%;
+        }
+        .video-card {
+            background: #000; border-radius: 20px; height: 200px;
+            position: relative; overflow: hidden; cursor: pointer;
+            transition: 0.4s;
+        }
+        .video-card:hover { transform: scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .play-btn {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 50px; height: 50px; background: rgba(255,255,255,0.3);
+            border-radius: 50%; backdrop-filter: blur(5px);
+            display: flex; align-items: center; justify-content: center; color: white;
+            font-size: 1.2rem; border: 2px solid white;
+            transition: 0.3s var(--bounce);
+        }
+        .video-card:hover .play-btn { background: var(--neon-green); border-color: var(--neon-green); color: black; transform: translate(-50%, -50%) scale(1.2); }
+        
+        .video-label {
+            position: absolute; bottom: 0; width: 100%; padding: 15px;
+            background: linear-gradient(to top, black, transparent);
+            color: white; font-size: 0.9rem;
+        }
+
+        /* --- 6. EXPANDED SERVICES (Grid) --- */
+        .grid-container {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px; padding: 0 5%; margin-bottom: 50px;
+        }
+        .feature-box {
+            background: white; padding: 25px; border-radius: 20px;
+            border-left: 5px solid var(--primary-green);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.4s var(--bounce);
+            opacity: 0; transform: translateY(50px); /* Hidden for scroll reveal */
+        }
+        .feature-box.show { opacity: 1; transform: translateY(0); }
+
+        .feature-box:hover { transform: translateY(-10px); background: #f1f8e9; }
+        
+        .feature-icon {
+            font-size: 2rem; color: var(--primary-green); margin-bottom: 15px;
+        }
+        .action-btn {
+            display: inline-block; margin-top: 15px; padding: 8px 20px;
+            background: var(--primary-dark); color: white; text-decoration: none;
+            border-radius: 20px; font-size: 0.8rem; transition: 0.3s;
+        }
+        .action-btn:hover { background: var(--neon-green); color: black; }
+
+        /* Medical Corner Specific */
+        .medical-section { background: #e3f2fd; padding: 40px 0; margin: 50px 0; border-radius: 30px; margin-left: 20px; margin-right: 20px; }
+
+     
