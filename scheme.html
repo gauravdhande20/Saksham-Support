@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- One Scheme Card -->
+<div class="scheme-card">
+  <h3>Deendayal Disabled Rehabilitation Scheme (DDRS)</h3>
+  <p>Grant-in-aid scheme for NGOs working for PwDs.</p>
+
+  <!-- Buttons -->
+  <button class="view-pdf-btn" 
+          data-pdf="pdfs/ddrs-guidelines.pdf">
+    View PDF
+  </button>
+
+  <button class="download-pdf-btn" 
+          data-pdf="pdfs/ddrs-guidelines.pdf">
+    Download PDF
+  </button>
+</div>
+
+
+<script>
+  // Run JS after page is loaded
+  document.addEventListener('DOMContentLoaded', function () {
+    // Handle "View PDF" buttons
+    const viewButtons = document.querySelectorAll('.view-pdf-btn');
+    viewButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const pdfUrl = btn.getAttribute('data-pdf');
+        if (!pdfUrl) {
+          alert('PDF link not set for this card.');
+          return;
+        }
+        // Open PDF in new tab
+        window.open(pdfUrl, '_blank');
+      });
+    });
+
+    // Handle "Download PDF" buttons
+    const downloadButtons = document.querySelectorAll('.download-pdf-btn');
+    downloadButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const pdfUrl = btn.getAttribute('data-pdf');
+        if (!pdfUrl) {
+          alert('PDF link not set for this card.');
+          return;
+        }
+
+        // Create a temporary invisible link and click it
+        const a = document.createElement('a');
+        a.href = pdfUrl;
+
+        // File name (last part of the URL)
+        const fileName = pdfUrl.split('/').pop() || 'form.pdf';
+        a.download = fileName;
+
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

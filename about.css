@@ -5,20 +5,16 @@
     font-family:Arial;
     
 }
-
-body{
-    background:rgb(249, 246, 238);
-    color:#333;
+body {
+    background-color: rgb(236 247 240);
 }
 
 /* NAVBAR */
 header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 50px;
-    background: rgb(249, 246, 238);
-    box-shadow:0 2px 5px rgba(8, 8, 8, 0.1);
+     background: rgb(26, 151, 26);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
 }
 
 nav a{
@@ -72,7 +68,7 @@ h2{
     width:30%;
     padding:20px;
     border-left: 5px solid green;
-    background:rgb(249, 246, 238);
+    background:white;
     border-radius:10px;
     box-shadow:0 2px 7px rgba(0,0,0,0.1);
 } 

@@ -35,13 +35,13 @@
     <div class="layout">
 
         <!-- sideBar -->
-        <form class="filter">
+        <form action="" method="get" class="filter" >
 
             <h3>Filter Schemes</h3>
 
             <div class="filter-group-er">
                 <h4>Disability Type</h4>
-                <label for=""><input type="checkbox" class="cd"> Visual Impairment</label>
+                <label for=""><input type="checkbox" id="" class="cd"> Visual Impairment</label>
                 <label for=""><input type="checkbox" class="cd"> Hearing Impairment</label>
                 <label for=""><input type="checkbox" class="cd"> Mobility Impairment</label>
                 <label for=""><input type="checkbox" class="cd"> Cognitive Disability</label>
@@ -58,11 +58,11 @@
             </div>
             <div class="filter-group-sc">
                 <h4>Scheme Type</h4>
-                <label for=""><input type="checkbox" class="cd" id="statecheck"> State</label>
+                <label for=""><input type="checkbox"class="cd" id="statecheck"> State</label>
                 <label><input type="checkbox" class="cd" id="central"> Central</label>
 
             </div>
-            <button class="app" id="applyButton">Apply</button>
+            <button type="submit" class="app"  id="applyButton">Apply</button>
             <button type="reset" class="rst">Reset</button>
 
 
@@ -79,7 +79,7 @@
                         <h3 class="hed-card">Visual Impairment</h3>
                         <p class="detail">Find government schemes and forms specifically designed to support individuals
                         </p>
-                        <button class="btn"><a href="#">Explore Forms</a></button>
+                      <a href="Souce/pdf/Disablity.pdff" download class="btn"> Explore Form</a>
 
                     </div>
 
@@ -88,7 +88,8 @@
                         <h3 class="hed-card">Hearing Impairment</h3>
                         <p class="detail">Discover schemes and application forms tailored for individuals with hearing
                             impairments.</p>
-                        <button class="btn"><a href="#">Explore Forms</a></button>
+                        <!-- <a href="Souce/pdf/Disablity.pdf" download class="btn"><button>Explore Forms</button></a> -->
+                         <a href="Souce/pdf/HEARING DISABILITY.pdf" download class="btn"> Explore Form</a>
                     </div>
 
                     <div class="cen-card">
@@ -96,7 +97,8 @@
                         <h3 class="hed-card">Mobility Impairment</h3>
                         <p class="detail">Access government support schemes and forms for individuals with mobility
                             challenges.</p>
-                        <button class="btn"><a href="#">Explore Forms</a></button>
+      <a href="Souce/pdf/Disablity.pdf" download class="btn"> Explore Form</a>
+
                     </div>
 
                     <div class="cen-card">
@@ -104,7 +106,7 @@
                         <h3 class="hed-card">Cognitive Disability</h3>
                         <p class="detail">Explore schemes and application forms designed to assist individuals with
                             cognitive disabilities.</p>
-                        <button class="btn"><a href="#">Explore Forms</a></button>
+                        <a href="Souce/pdf/mental-retardation-for-government-benefits.pdf" download class="btn"> Explore Form</a>
                     </div>
             </section>
 
@@ -196,8 +198,8 @@
 
             <section id="pageination" class="section-p1">
                 <a href="#">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
+                <a href="./centralGov.html">2</a>
+                <a href="./stateGov.html">3</a>
                 <a href="#">4</a>
                 <a href="#"><i class="fa-solid fa-arrow-right-long"></i></a>
             </section>
@@ -293,7 +295,8 @@
 
 
 
-<script src="govejs.js"></script>
+
+<script src="./govejs.js"></script>
 </body>
 
 </html>

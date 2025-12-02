@@ -6,6 +6,10 @@
 body {
     background-color: rgb(236 247 240);
 }
+a{
+    text-decoration: none;
+    text-align: center;
+}
 .cd{
      accent-color: #4CAF50;
      /* color: white; */
@@ -161,12 +165,13 @@ body {
     gap: 20px;
 }
 .cen-card{
+    border-left: 5px solid #4CAF50;
         display: flex;
     flex-direction: column;
     background-color: #ffff;
     /* padding: 20px; */
     padding: 13px 55px 13px 25px;
-    border-radius: 12px;
+    border-radius: 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     margin-bottom: 20px;
     transition: 0.3s;
