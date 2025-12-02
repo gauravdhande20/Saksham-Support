@@ -1,16 +1,17 @@
  // 1. Scroll Up Logic
     const scrollBtn = document.getElementById("scrollTopBtn");
+     ///HTML mein se uss button ko dhoondh raha hai jiski ID scrollTopBtn hai aur use scrollBtn naam ke variable mein save kar raha hai.
 
-    window.onscroll = function() {
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            scrollBtn.classList.add("show");
-        } else {
-            scrollBtn.classList.remove("show");
+    window.onscroll = function() {   ///checking window scroll
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) { ///if user scroll 300px
+            scrollBtn.classList.add("show"); ///then css se button dikhne lagega.
+        } else { ///dubara upper gaya to btn hide
+            scrollBtn.classList.remove("show"); 
         }
     };
 
     function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'smooth' }); ///ye btn ko top me smoothluy lajega
     }
 
     // 2. Settings Panel Toggle
