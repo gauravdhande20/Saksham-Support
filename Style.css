@@ -627,7 +627,4 @@
         }
         .action-btn:hover { background: var(--neon-green); color: black; }
 
-        /* Medical Corner Specific */
-        .medical-section { background: #e3f2fd; padding: 40px 0; margin: 50px 0; border-radius: 30px; margin-left: 20px; margin-right: 20px; }
-
-     
+           
